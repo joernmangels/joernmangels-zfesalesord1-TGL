@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/zc_salesdocschedline_cds/$metadata">
+        <edmx:Include Namespace="ZC_SALESDOCSCHEDLINE_CDS" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="zc_salesdocschedline_cds_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_Customer_VHType/CustomerAccountGroup">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_Customer_VHType/AuthorizationGroup">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_Customer_VHType/IsBusinessPurposeCompleted">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_DeliveryBlockReasonType/DeliveryBlockReason">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_DeliveryBlockReasonType/DeliveryBlockReason_Text">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_FactoryCalendarType/ValidityStartYear">
+                <Annotation Term="Common.IsCalendarYear"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_FactoryCalendarType/ValidityEndYear">
+                <Annotation Term="Common.IsCalendarYear"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ProductVHType/to_ProductCategory">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ProductVHType/IndustrySector">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ProductVHType/GrossWeight">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ProductVHType/NetWeight">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ProductVHType/WeightUnit">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ProductVHType/ManufacturerNumber">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ProductVHType/ProductManufacturerNumber">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ProjectBasicDataType/PlannedStartDate">
+                <Annotation Term="Common.IsDayOfCalendarMonth"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ProjectBasicDataType/PlannedEndDate">
+                <Annotation Term="Common.IsDayOfCalendarMonth"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_SalesDocumentType/ZZ1_ORDER_AP_EMAIL_SDH">
+                <Annotation Term="Communication.IsEmailAddress"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_SalesDocumentType/ZZ1_ORDER_AP_TELNR_SDH">
+                <Annotation Term="Communication.IsPhoneNumber"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_SalesDocumentType">
+                <Annotation Term="Communication.Contact">
+                    <Record>
+                        <PropertyValue Property="tel">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="type" EnumMember="Communication.PhoneType/preferred"/>
+                                    <PropertyValue Property="uri" Path="ZZ1_ORDER_AP_TELNR_SDH"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="email">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="address" Path="ZZ1_ORDER_AP_EMAIL_SDH"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ServiceDocumentEnhcdType/ID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ServiceDocumentEnhcdType/ServiceDocNetAmount"/>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ServiceDocumentEnhcdType/ServiceDocGrossAmount"/>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_ServiceDocumentEnhcdType/ServiceDocTaxAmount"/>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_Supplier_VHType/AuthorizationGroup">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_Supplier_VHType/SupplierAccountGroup">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.I_Supplier_VHType/IsBusinessPurposeCompleted">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.ZC_SALESDOCSCHEDLINEType/SalesDocument">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.ZC_SALESDOCSCHEDLINEType">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesDocument"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataFieldWithIntentBasedNavigation">
+                            <PropertyValue Property="SemanticObject" String="SalesOrder"/>
+                            <PropertyValue Property="Action" String="displayFactSheet"/>
+                            <PropertyValue Property="Value" Path="SalesDocument"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>SalesDocument</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.ZI_SalesDocumentItem2Type/ID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_SALESDOCSCHEDLINE_CDS.ZI_SalesDocumentItem2Type/NetAmount"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

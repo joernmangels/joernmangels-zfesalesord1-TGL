@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.5"
+metadata:
+  name: de.thomasgmbh.zfesalesord1.zfesalesord1
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: saptgd
+          url: http://saptgd:44300
+        app:
+          name: ZFESALESORD1
+          description: Init
+          package: ZTGL_SALES
+          transport: TGDK901264
